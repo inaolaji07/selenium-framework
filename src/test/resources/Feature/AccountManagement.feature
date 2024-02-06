@@ -9,5 +9,5 @@ Feature: Account Management
     Then my account page is displayed
 
     Examples:
-      | Firstname | Lastname | Email               | Password | ConfirmPassword |
-      | Peter     | Obi      | Jamesyisa@gmail.com | Yisa123@ | Yisa123@        |
+      | Firstname | Lastname | Email               | Password  | ConfirmPassword |
+      | Peter     | Obi      | Jamesyisa@gmail.com | James123@ | James123@       |

@@ -8,4 +8,4 @@ Feature: Account Management
 
     Examples:
       | Firstname | Lastname | Email               | Password | ConfirmPassword |
-      | Ada       | Yisa     | Jamesyisa@gmail.com | Demo123@ | Demo123@        |
+      | Ada       | Eze      | Jamesyisa@gmail.com | Demo123@ | Demo123@        |

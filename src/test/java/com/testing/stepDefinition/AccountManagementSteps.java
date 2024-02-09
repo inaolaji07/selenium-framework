@@ -1,6 +1,8 @@
 package com.testing.stepDefinition;
 
 import com.testing.cucumber.Hooks;
+import com.testing.pageObject.AccountHomePagePO;
+import com.testing.pageObject.AccountLoginPagePO;
 import com.testing.pageObject.CreateAccountPagePO;
 import com.testing.pageObject.HomePagePO;
 import io.cucumber.java.en.And;
@@ -37,16 +39,25 @@ public class AccountManagementSteps {
     public void myAccountPageIsDisplayed() {
     }
 
+public class AccountLoginSteps {
+        WebDriver driver = Hooks.driver;
     @Given("I am on customer login page")
     public void iAmOnCustomerLoginPage() {
+        AccountHomePagePO accountHomePagePO = new AccountHomePagePO(driver);
+        accountHomePagePO.clickSignInLink();
     }
 
     @When("I enter {string} {string}")
     public void iEnter(String UserName, String Password) {
+        AccountLoginPagePO accountLoginPagePO = new AccountLoginPagePO(driver);
+        accountLoginPagePO. enterUserName(UserName);
+        accountLoginPagePO.enterPassword(Password);
     }
 
     @And("I click on sign in button")
     public void iClickOnSignInButton() {
+     AccountLoginPagePO accountLoginPagePO = new AccountLoginPagePO(driver);
+     accountLoginPagePO.clickSignInButton();
     }
 
     @Then("I should be successfully login")

@@ -14,7 +14,7 @@ public class AccountHomePagePO {
 
     // Initialize Web Element Using Selenium WebDriver
 
-    public HomePagePO(WebDriver driver){
+    public AccountHomePagePO(WebDriver driver){
         PageFactory.initElements(driver, this);
     }
 

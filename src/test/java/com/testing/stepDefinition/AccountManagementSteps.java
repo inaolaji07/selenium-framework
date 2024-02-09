@@ -36,4 +36,20 @@ public class AccountManagementSteps {
     @Then("my account page is displayed")
     public void myAccountPageIsDisplayed() {
     }
+
+    @Given("I am on customer login page")
+    public void iAmOnCustomerLoginPage() {
+    }
+
+    @When("I enter {string} {string}")
+    public void iEnter(String UserName, String Password) {
+    }
+
+    @And("I click on sign in button")
+    public void iClickOnSignInButton() {
+    }
+
+    @Then("I should be successfully login")
+    public void iShouldBeSuccessfullyLogin() {
+    }
 }

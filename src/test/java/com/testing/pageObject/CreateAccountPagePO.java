@@ -15,7 +15,7 @@ public class CreateAccountPagePO {
     public static WebElement EmailField;
     @FindBy(name = "password")
     public static WebElement PasswordField;
-    @FindBy(name = "confirmpassword")
+    @FindBy(name = "password_confirmation")
     public static WebElement ConfirmpasswordField;
     @FindBy(css = "#form-validate > div > div.primary")
     public static WebElement CreateAnAccountButton;

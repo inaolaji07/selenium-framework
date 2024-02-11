@@ -1,10 +1,7 @@
 package com.testing.stepDefinition;
 
 import com.testing.cucumber.Hooks;
-import com.testing.pageObject.AccountHomePagePO;
-import com.testing.pageObject.AccountLoginPagePO;
-import com.testing.pageObject.CreateAccountPagePO;
-import com.testing.pageObject.HomePagePO;
+import com.testing.pageObject.*;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -41,14 +38,24 @@ public class AccountManagementSteps {
 
     @Given("I open the create an account page")
     public void iOpenTheCreateAnAccountPage() {
+        HomePageDuplicatePO homePageDuplicatePO = new HomePageDuplicatePO(driver);
+        homePageDuplicatePO.clickCreateAccountLink();
     }
 
     @When("I put {string} {string} {string} {string} {string}")
     public void iPut(String Firstname, String Lastname, String Email, String Password, String ConfirmPassword) {
+        DuplicateAccountCreationPO duplicateAccountCreationPO = new DuplicateAccountCreationPO(driver);
+        duplicateAccountCreationPO.enterFirstName(Firstname);
+        duplicateAccountCreationPO.enterLastName(Lastname);
+        duplicateAccountCreationPO.enterEmail(Email);
+        duplicateAccountCreationPO.enterPassword(Password);
+        duplicateAccountCreationPO.enterConfirmPassword(ConfirmPassword);
     }
 
     @And("The create an account button is click on")
     public void theCreateAnAccountButtonIsClickOn() {
+        DuplicateAccountCreationPO duplicateAccountCreationPO = new DuplicateAccountCreationPO(driver);
+        duplicateAccountCreationPO.clickCreateAccountButton();
     }
 
     @Then("Error message customer account already exist should be displayed")
@@ -57,14 +64,21 @@ public class AccountManagementSteps {
 
     @Given("I opened the customer login page")
     public void iOpenedTheCustomerLoginPage() {
+        HomePageUnregisteredPO homePageUnregisteredPO = new HomePageUnregisteredPO(driver);
+        homePageUnregisteredPO.clickSignInLink();
     }
 
     @When("I put {string} {string}")
     public void iPut(String Username, String Password) {
+        UnregisteredCustomerCreationPO unregisteredCustomerCreationPO = new UnregisteredCustomerCreationPO(driver);
+        unregisteredCustomerCreationPO.enterUserName(Username);
+        unregisteredCustomerCreationPO.enterPassword(Password);
     }
 
     @And("The sign in button is click on")
     public void theSignInButtonIsClickOn() {
+        UnregisteredCustomerCreationPO unregisteredCustomerCreationPO = new UnregisteredCustomerCreationPO(driver);
+        unregisteredCustomerCreationPO.clickSignInButton();
     }
 
     @Then("Error message customer not registered to login should be displayed")

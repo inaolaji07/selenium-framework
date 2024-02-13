@@ -10,7 +10,18 @@ Feature: Account Management
 
     Examples:
       | Firstname | Lastname | Email               | Password  | ConfirmPassword |
-      | Peter     | Obi      | Jamesyisa@gmail.com | James123@ | James123@       |
+      | Peter     | Obi      | Jamesyisa1@gmail.com | James123@ | James123@       |
+
+  @DuplicateCustomerCreation
+  Scenario Outline: Duplicate account creation not allowed
+    Given I am on create an account page
+    When I enter "<Firstname>" "<Lastname>" "<Email>" "<Password>" "<ConfirmPassword>"
+    And I click on create an account
+    Then Error message customer account already exist should be displayed
+
+    Examples:
+      | Firstname | Lastname | Email               | Password  | ConfirmPassword |
+      | Peter     | Obi      | Jamesyisa1@gmail.com | James123@ | James123@       |
 
 
   @AccountLogin
@@ -22,23 +33,19 @@ Feature: Account Management
 
     Examples:
       | Username            | Password  |
-      | Jamesyisa@gmail.com | James123@ |
+      | Jamesyisa1@gmail.com | James123@ |
 
 
   @UnregisteredCustomer
-  Scenario Outline: Unregistered Customer not allowed to login
+  Scenario Outline: Unregistered customer not allowed to login
     Given I am on customer login page
     When I enter "<Username>" "<Password>"
     And I click on sign in button
-    Then Unregistered customer not allowed to login error message
+    Then Error message customer not registered to login should be displayed
 
     Examples:
-      | Username           | Password |
-      | Jamesysa@gmail.com | James23@ |
-
-
-
-
+      | Username       | Password   |
+      | test@gmail.com | James2313@ |
 
 
 

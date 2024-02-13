@@ -36,63 +36,10 @@ public class AccountManagementSteps {
     public void myAccountPageIsDisplayed() {
     }
 
-    @Given("I open the create an account page")
-    public void iOpenTheCreateAnAccountPage() {
-        HomePageDuplicatePO homePageDuplicatePO = new HomePageDuplicatePO(driver);
-        homePageDuplicatePO.clickCreateAccountLink();
-    }
-
-    @When("I put {string} {string} {string} {string} {string}")
-    public void iPut(String Firstname, String Lastname, String Email, String Password, String ConfirmPassword) {
-        DuplicateAccountCreationPO duplicateAccountCreationPO = new DuplicateAccountCreationPO(driver);
-        duplicateAccountCreationPO.enterFirstName(Firstname);
-        duplicateAccountCreationPO.enterLastName(Lastname);
-        duplicateAccountCreationPO.enterEmail(Email);
-        duplicateAccountCreationPO.enterPassword(Password);
-        duplicateAccountCreationPO.enterConfirmPassword(ConfirmPassword);
-    }
-
-    @And("The create an account button is click on")
-    public void theCreateAnAccountButtonIsClickOn() {
-        DuplicateAccountCreationPO duplicateAccountCreationPO = new DuplicateAccountCreationPO(driver);
-        duplicateAccountCreationPO.clickCreateAccountButton();
-    }
-
-    @Then("Error message customer account already exist should be displayed")
-    public void errorMessageCustomerAccountAlreadyExistShouldBeDisplayed() {
-    }
-
-    @Given("I opened the customer login page")
-    public void iOpenedTheCustomerLoginPage() {
-        HomePageUnregisteredPO homePageUnregisteredPO = new HomePageUnregisteredPO(driver);
-        homePageUnregisteredPO.clickSignInLink();
-    }
-
-    @When("I put {string} {string}")
-    public void iPut(String Username, String Password) {
-        UnregisteredCustomerCreationPO unregisteredCustomerCreationPO = new UnregisteredCustomerCreationPO(driver);
-        unregisteredCustomerCreationPO.enterUserName(Username);
-        unregisteredCustomerCreationPO.enterPassword(Password);
-    }
-
-    @And("The sign in button is click on")
-    public void theSignInButtonIsClickOn() {
-        UnregisteredCustomerCreationPO unregisteredCustomerCreationPO = new UnregisteredCustomerCreationPO(driver);
-        unregisteredCustomerCreationPO.clickSignInButton();
-    }
-
-    @Then("Error message customer not registered to login should be displayed")
-    public void errorMessageCustomerNotRegisteredToLoginShouldBeDisplayed() {
-    }
-
-
-    public class AccountLoginSteps {
-    WebDriver driver = Hooks.driver;
-
     @Given("I am on customer login page")
     public void iAmOnCustomerLoginPage() {
-        AccountHomePagePO accountHomePagePO = new AccountHomePagePO(driver);
-        accountHomePagePO.clickSignInLink();
+        HomePagePO homePagePO = new HomePagePO(driver);
+        homePagePO.clickSignInLink();
     }
 
     @When("I enter {string} {string}")
@@ -110,5 +57,13 @@ public class AccountManagementSteps {
 
     @Then("I should be successfully login")
     public void iShouldBeSuccessfullyLogin() {
+    }
+
+    @Then("Error message customer account already exist should be displayed")
+    public void errorMessageCustomerAccountAlreadyExistShouldBeDisplayed() {
+    }
+
+    @Then("Error message customer not registered to login should be displayed")
+    public void errorMessageCustomerNotRegisteredToLoginShouldBeDisplayed() {
     }
 }
